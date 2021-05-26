@@ -1,16 +1,8 @@
-package com.das.model;
+package com.das.dto;
 
-import java.util.List;
+import com.das.model.Cliente;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-@Entity
-public class Cliente {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ClienteDto {
 	private long idCliente;
 	private String nombre;
 	private String direccion;
@@ -18,8 +10,6 @@ public class Cliente {
 	private String telefono;
 	private String nit;
 	
-	@OneToMany(mappedBy = "cliente")
-	private List<Proyecto> proyectos;
 	public long getIdCliente() {
 		return idCliente;
 	}
@@ -56,24 +46,27 @@ public class Cliente {
 	public void setNit(String nit) {
 		this.nit = nit;
 	}
-	public List<Proyecto> getProyectos() {
-		return proyectos;
-	}
-	public void setProyectos(List<Proyecto> proyectos) {
-		this.proyectos = proyectos;
-	}
-	public Cliente(long idCliente,String nombre, String direccion, String correo, String telefono, String nit) {
+	public ClienteDto() {
 		super();
-		this.idCliente=idCliente;
+		// TODO Auto-generated constructor stub
+	}
+	public ClienteDto(long idCliente, String nombre, String direccion, String correo, String telefono, String nit) {
+		super();
+		this.idCliente = idCliente;
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.correo = correo;
 		this.telefono = telefono;
 		this.nit = nit;
 	}
-	public Cliente() {
-		super();
-		// TODO Auto-generated constructor stub
+	public static Cliente toModel(ClienteDto c) {
+		return new Cliente(c.getIdCliente(),c.getNombre(),c.getDireccion(),
+				c.getCorreo(),c.getTelefono(),c.getNit());
+	}
+	
+	public static ClienteDto toDto(Cliente c) {
+		return new ClienteDto(c.getIdCliente(),c.getNombre(),c.getDireccion(),
+				c.getCorreo(),c.getTelefono(),c.getNit());
 	}
 	
 }

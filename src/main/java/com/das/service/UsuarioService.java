@@ -16,6 +16,7 @@ import com.das.model.Role;
 import com.das.model.Usuario;
 import com.das.repository.RoleRepository;
 import com.das.repository.UsuarioRepository;
+
 @Service
 public class UsuarioService implements UserDetailsService{
 	@Autowired
@@ -45,7 +46,9 @@ public class UsuarioService implements UserDetailsService{
 		repo.save(u);
 	}
 	
-	public void delete(Usuario u) {
+	public void delete(long id) {
+		Usuario u=new Usuario();
+		u.setIdUsuario(id);
 		repo.delete(u);
 	}
 	
