@@ -1,3 +1,4 @@
+
 package com.das.controller;
 
 import java.util.HashMap;
@@ -36,6 +37,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 	
 	@ExceptionHandler({ Exception.class })
 	public ResponseEntity<Object> handleAll(Exception ex) {
+		ex.printStackTrace();
 		return new ResponseEntity<>("Something went wrong", HttpStatus.BAD_REQUEST);
 	}
 }

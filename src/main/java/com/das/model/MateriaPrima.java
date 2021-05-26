@@ -17,7 +17,7 @@ public class MateriaPrima {
 	private String descripcion;
 	private double costoPromedio;
 	private int cantidadExistencias;
-	@OneToMany(mappedBy = "materia_prima")
+	@OneToMany(mappedBy = "materiaPrima")
 	private List<AsignacionMateriaPrima> asignacionMateriaPrimas;
 	public long getIdMateriaPrima() {
 		return idMateriaPrima;
