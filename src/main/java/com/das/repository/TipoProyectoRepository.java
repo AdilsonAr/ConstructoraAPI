@@ -7,5 +7,5 @@ import com.das.model.TipoProyecto;
 
 @Repository
 public interface TipoProyectoRepository extends JpaRepository<TipoProyecto, Long>{
-
+	public TipoProyecto findByTipo(String tipo);
 }

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.das.constants.Roles;
-import com.das.dto.UsuarioDto;
+import com.das.dto.RequestUsuarioDto;
 import com.das.model.Role;
 import com.das.model.Usuario;
 import com.das.repository.RoleRepository;
@@ -35,7 +35,7 @@ public class MapUsuarioWithCustomRole implements MapUsuarioStrategy{
 	}
 	
 	@Override
-	public Usuario map(UsuarioDto u) throws IllegalArgumentException{
+	public Usuario map(RequestUsuarioDto u) throws IllegalArgumentException{
 		MyBool valid=new MyBool(false);
 		roles.forEach(x->{
 			if(u.getRole().equals(x.getRole())) {
@@ -44,7 +44,7 @@ public class MapUsuarioWithCustomRole implements MapUsuarioStrategy{
 		});
 		if(valid.isValue()) {
 			Role r=roleRepo.findByRole(u.getRole());
-			Usuario usuario=UsuarioDto.toModel(u);
+			Usuario usuario=RequestUsuarioDto.toModel(u);
 			usuario.setRole(r);
 			usuario.setClave(enc.encode(usuario.getClave()));
 			return usuario;

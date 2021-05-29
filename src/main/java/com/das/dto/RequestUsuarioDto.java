@@ -2,13 +2,13 @@ package com.das.dto;
 
 import com.das.model.Usuario;
 
-public class UsuarioDto {
+public class RequestUsuarioDto {
 	private long id;
 	private String usuario;
 	private String clave;
 	private String role;
 	
-	public UsuarioDto(long id, String usuario, String clave, String role) {
+	public RequestUsuarioDto(long id, String usuario, String clave, String role) {
 		super();
 		this.id = id;
 		this.usuario = usuario;
@@ -39,26 +39,26 @@ public class UsuarioDto {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public UsuarioDto(String usuario, String clave, String rol) {
+	public RequestUsuarioDto(String usuario, String clave, String rol) {
 		super();
 		this.usuario = usuario;
 		this.clave = clave;
 		this.role = rol;
 	}
-	public UsuarioDto() {
+	public RequestUsuarioDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public static Usuario toModel(UsuarioDto u) {
+	public static Usuario toModel(RequestUsuarioDto u) {
 		return new Usuario(u.getId(), u.getUsuario(),u.getClave());
 	}
 	
-	public static UsuarioDto toDto(Usuario u) {
-		return new UsuarioDto(u.getUsuario(),u.getClave(),u.getRole().getRole());
+	public static RequestUsuarioDto toDto(Usuario u) {
+		return new RequestUsuarioDto(u.getUsuario(),u.getClave(),u.getRole().getRole());
 	}
 	//temp
-	public static Usuario toModelWithId(UsuarioDto u) {
+	public static Usuario toModelWithId(RequestUsuarioDto u) {
 		return new Usuario(u.getId(), u.getUsuario(),u.getClave());
 	}
 	

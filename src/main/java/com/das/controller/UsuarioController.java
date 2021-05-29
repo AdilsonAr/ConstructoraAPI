@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.das.dto.SendUsuarioDto;
-import com.das.dto.UsuarioDto;
+import com.das.dto.ResponseUsuarioDto;
+import com.das.dto.RequestUsuarioDto;
 import com.das.model.Usuario;
 import com.das.service.MapUsuarioStrategy;
 import com.das.service.UsuarioService;
@@ -39,31 +39,31 @@ public class UsuarioController {
 	@GetMapping("/all")
 	public ResponseEntity<?> readAl(){
 		List<Usuario> u=service.readAll();
-		List<SendUsuarioDto> dto=new ArrayList<>();
-		u.forEach(x->dto.add(SendUsuarioDto.toDto(x)));
+		List<ResponseUsuarioDto> dto=new ArrayList<>();
+		u.forEach(x->dto.add(ResponseUsuarioDto.toDto(x)));
 		return new ResponseEntity<>(dto,HttpStatus.OK);
 	}
 	
 	@GetMapping("/one/{id}")
 	public ResponseEntity<?> read(@PathVariable("id") long id){
 		Usuario u= service.read(id);
-		return new ResponseEntity<>(SendUsuarioDto.toDto(u), HttpStatus.OK);
+		return new ResponseEntity<>(ResponseUsuarioDto.toDto(u), HttpStatus.OK);
 	}
 	
 	@PostMapping("/create")
-	public ResponseEntity<?> create(@RequestBody UsuarioDto u) throws Exception{
+	public ResponseEntity<?> create(@RequestBody RequestUsuarioDto u) throws Exception{
 		service.create(strategy.map(u));
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	@PostMapping("/create_reader")
-	public ResponseEntity<?> createReader(@RequestBody UsuarioDto u) throws Exception{
+	public ResponseEntity<?> createReader(@RequestBody RequestUsuarioDto u) throws Exception{
 		service.create(strategy2.map(u));
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<?> update(@RequestBody UsuarioDto u) throws Exception{
+	public ResponseEntity<?> update(@RequestBody RequestUsuarioDto u) throws Exception{
 		service.update(strategy.map(u));
 		return new ResponseEntity<>(HttpStatus.OK);
 	}

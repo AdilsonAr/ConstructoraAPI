@@ -7,5 +7,5 @@ import com.das.model.EstadoAvance;
 
 @Repository
 public interface EstadoAvanceRepository extends JpaRepository<EstadoAvance, Long>{
-
+	public EstadoAvance findByEstado(String estado);
 }

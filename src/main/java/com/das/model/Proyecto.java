@@ -131,25 +131,28 @@ public class Proyecto {
 	public void setAsignacionMateriaPrimas(List<AsignacionMateriaPrima> asignacionMateriaPrimas) {
 		this.asignacionMateriaPrimas = asignacionMateriaPrimas;
 	}
-	public Proyecto(List<Acceso> accesos, String nombre, double latitud, double longitud, double porcentajeAvance,
-			LocalDateTime inicio, LocalDateTime fin, List<Inconveniente> inconvenientes, TipoProyecto tipoProyecto,
-			EstadoAvance estadoAvance, Cliente cliente, List<AsignacionMaquinaria> asignacionMaquinarias,
-			List<AsignacionEmpleado> asignacionEmpleado, List<AsignacionMateriaPrima> asignacionMateriaPrimas) {
+	
+	public Proyecto(String nombre, double latitud, double longitud, double porcentajeAvance, LocalDateTime inicio,
+			LocalDateTime fin) {
 		super();
-		this.accesos = accesos;
 		this.nombre = nombre;
 		this.latitud = latitud;
 		this.longitud = longitud;
 		this.porcentajeAvance = porcentajeAvance;
 		this.inicio = inicio;
 		this.fin = fin;
-		this.inconvenientes = inconvenientes;
-		this.tipoProyecto = tipoProyecto;
-		this.estadoAvance = estadoAvance;
-		this.cliente = cliente;
-		this.asignacionMaquinarias = asignacionMaquinarias;
-		this.asignacionEmpleado = asignacionEmpleado;
-		this.asignacionMateriaPrimas = asignacionMateriaPrimas;
+	}
+	
+	public Proyecto(long idProyecto, String nombre, double latitud, double longitud, double porcentajeAvance,
+			LocalDateTime inicio, LocalDateTime fin) {
+		super();
+		this.idProyecto = idProyecto;
+		this.nombre = nombre;
+		this.latitud = latitud;
+		this.longitud = longitud;
+		this.porcentajeAvance = porcentajeAvance;
+		this.inicio = inicio;
+		this.fin = fin;
 	}
 	public Proyecto() {
 		super();

@@ -42,6 +42,14 @@ public class UsuarioService implements UserDetailsService{
 		repo.save(u);
 	}
 	
+	public long readId(String username) {
+		return (repo.findByUsuario(username)).getIdUsuario();
+	}
+	
+	public Usuario readUsuario(String username) {
+		return repo.findByUsuario(username);
+	}
+	
 	public void update(Usuario u) {
 		repo.save(u);
 	}

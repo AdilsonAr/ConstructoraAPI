@@ -2,7 +2,7 @@ package com.das.dto;
 
 import com.das.model.Usuario;
 
-public class SendUsuarioDto {
+public class ResponseUsuarioDto {
 	private long id;
 	private String usuario;
 	private String role;
@@ -24,18 +24,18 @@ public class SendUsuarioDto {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public SendUsuarioDto(long id, String usuario, String role) {
+	public ResponseUsuarioDto(long id, String usuario, String role) {
 		super();
 		this.id = id;
 		this.usuario = usuario;
 		this.role = role;
 	}
-	public SendUsuarioDto() {
+	public ResponseUsuarioDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public static SendUsuarioDto toDto(Usuario u) {
-		return new SendUsuarioDto(u.getIdUsuario(),u.getUsuario(),u.getRole().getRole());
+	public static ResponseUsuarioDto toDto(Usuario u) {
+		return new ResponseUsuarioDto(u.getIdUsuario(),u.getUsuario(),u.getRole().getRole());
 	}
 }

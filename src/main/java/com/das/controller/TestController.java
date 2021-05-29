@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.das.dto.UsuarioDto;
+import com.das.dto.RequestUsuarioDto;
 import com.das.service.MapUsuarioStrategy;
 import com.das.service.UsuarioService;
 
@@ -28,7 +28,7 @@ public class TestController {
 	}
 	
 	@PostMapping("/create")
-	public ResponseEntity<?> create(@RequestBody UsuarioDto u) throws Exception{
+	public ResponseEntity<?> create(@RequestBody RequestUsuarioDto u) throws Exception{
 		service.create(strategy.map(u));
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
