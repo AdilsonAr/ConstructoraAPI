@@ -22,8 +22,11 @@ import com.das.dto.RequestUsuarioDto;
 import com.das.model.Usuario;
 import com.das.service.MapUsuarioStrategy;
 import com.das.service.UsuarioService;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000", methods= {RequestMethod.GET,RequestMethod.POST})
 @RequestMapping("/usuario")
 public class UsuarioController {
 	@Autowired

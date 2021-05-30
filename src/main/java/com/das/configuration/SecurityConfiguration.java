@@ -11,6 +11,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.das.service.UsuarioService;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
@@ -29,8 +32,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		.antMatchers("/test").permitAll()
 		.anyRequest().authenticated()
 		.and().httpBasic();
+		http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues());
+
 	}
-	
+	  @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
+        return source;
+    }
 	@Bean
 	public PasswordEncoder pwdEncoder() {
 		return new BCryptPasswordEncoder();
