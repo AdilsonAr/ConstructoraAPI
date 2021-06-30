@@ -22,10 +22,15 @@ import com.das.dto.RequestUsuarioDto;
 import com.das.model.Usuario;
 import com.das.service.MapUsuarioStrategy;
 import com.das.service.UsuarioService;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 //dependency inversion
 //la clase controller de usuario(alto nivel) se comunica con los 
 //mapper de usuario(bajo nivel) por una abstraccion
+
 @RestController
+@CrossOrigin(origins = "http://localhost:3000", methods= {RequestMethod.GET,RequestMethod.POST})
 @RequestMapping("/usuario")
 public class UsuarioController {
 	@Autowired
