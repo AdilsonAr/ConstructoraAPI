@@ -52,8 +52,11 @@ public class AsignacionMaquinaria {
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
-	public AsignacionMaquinaria(Proyecto proyecto, Maquinaria maquinaria, LocalDateTime fechaAsignacion, int cantidad) {
+	
+	public AsignacionMaquinaria(long idAsignacionMaquinaria, Proyecto proyecto, Maquinaria maquinaria,
+			LocalDateTime fechaAsignacion, int cantidad) {
 		super();
+		this.idAsignacionMaquinaria = idAsignacionMaquinaria;
 		this.proyecto = proyecto;
 		this.maquinaria = maquinaria;
 		this.fechaAsignacion = fechaAsignacion;

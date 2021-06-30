@@ -4,8 +4,6 @@ import java.time.LocalDateTime;
 
 import com.das.model.Proyecto;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
-
 public class RequestProyectoDto {
 	private String nombre;
 	private double latitud;

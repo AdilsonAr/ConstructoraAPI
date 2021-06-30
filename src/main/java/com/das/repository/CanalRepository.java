@@ -7,5 +7,5 @@ import com.das.model.Canal;
 
 @Repository
 public interface CanalRepository extends JpaRepository<Canal, Long>{
-
+	public abstract Canal findByNombre(String nombre);
 }

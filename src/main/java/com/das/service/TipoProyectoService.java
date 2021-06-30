@@ -19,7 +19,7 @@ public class TipoProyectoService {
 	public void post() {
 		List<String> tipos=new ArrayList<>();
 		tipos.add("construcción");
-		tipos.add("demolición");
+		tipos.add("remodelación");
 		tipos.forEach(x->{
 			if(repo.findByTipo(x)==null) {
 				repo.save(new TipoProyecto(x));

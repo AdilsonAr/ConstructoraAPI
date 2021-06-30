@@ -11,12 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.das.dto.RequestUsuarioDto;
+import com.das.model.Canal;
+import com.das.service.CanalService;
 import com.das.service.MapUsuarioStrategy;
+import com.das.service.SuscripcionService;
 import com.das.service.UsuarioService;
 
 @RestController
 @RequestMapping("/test")
 public class TestController {
+	@Autowired
+	CanalService canalService;
+	@Autowired
+	SuscripcionService sservice;
 	@Autowired
 	UsuarioService service;
 	@Autowired
@@ -24,6 +31,8 @@ public class TestController {
 	MapUsuarioStrategy strategy;
 	@GetMapping
 	public ResponseEntity<?> test(){
+		Canal canal=canalService.readNombre("Proyectos");
+		System.out.println("en n service: "+canal.getSuscripciones().size());
 		return new ResponseEntity<>("hello world",HttpStatus.OK);
 	}
 	

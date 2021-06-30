@@ -77,7 +77,7 @@ public class Empleado {
 		this.asignacionEmpleados = asignacionEmpleados;
 	}
 	public Empleado(String nombres, String apellidos, String nit, String dui, String telefono, String direccion,
-			double sueldo, List<AsignacionEmpleado> asignacionEmpleados) {
+			double sueldo) {
 		super();
 		this.nombres = nombres;
 		this.apellidos = apellidos;
@@ -86,7 +86,6 @@ public class Empleado {
 		this.telefono = telefono;
 		this.direccion = direccion;
 		this.sueldo = sueldo;
-		this.asignacionEmpleados = asignacionEmpleados;
 	}
 	public Empleado() {
 		super();

@@ -52,8 +52,11 @@ public class AsignacionMateriaPrima {
 	public void setMateriaPrima(MateriaPrima materiaPrima) {
 		this.materiaPrima = materiaPrima;
 	}
-	public AsignacionMateriaPrima(LocalDateTime fecha, int cantidad, Proyecto proyecto, MateriaPrima materiaPrima) {
+	
+	public AsignacionMateriaPrima(long idAsignacionMateriaPrima, LocalDateTime fecha, int cantidad, Proyecto proyecto,
+			MateriaPrima materiaPrima) {
 		super();
+		this.idAsignacionMateriaPrima = idAsignacionMateriaPrima;
 		this.fecha = fecha;
 		this.cantidad = cantidad;
 		this.proyecto = proyecto;

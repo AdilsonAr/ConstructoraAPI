@@ -22,19 +22,21 @@ import com.das.dto.RequestUsuarioDto;
 import com.das.model.Usuario;
 import com.das.service.MapUsuarioStrategy;
 import com.das.service.UsuarioService;
-
+//dependency inversion
+//la clase controller de usuario(alto nivel) se comunica con los 
+//mapper de usuario(bajo nivel) por una abstraccion
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
 	@Autowired
-	UsuarioService service;
+	private UsuarioService service;
 	@Autowired
 	@Qualifier("withCustomRole")
-	MapUsuarioStrategy strategy;
+	private MapUsuarioStrategy strategy;
 	
 	@Autowired
 	@Qualifier("withReaderRole")
-	MapUsuarioStrategy strategy2;
+	private MapUsuarioStrategy strategy2;
 	
 	@GetMapping("/all")
 	public ResponseEntity<?> readAl(){

@@ -8,12 +8,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Notificacion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idNotificacion;
+	@OneToOne(mappedBy = "notificacion")
+	private NotificacionNoVista notificacionNoVista;
 	@ManyToOne
 	@JoinColumn(name="idCanal")
 	private Canal canal;

@@ -17,7 +17,8 @@ import com.das.model.Acceso;
 import com.das.model.Proyecto;
 import com.das.model.Usuario;
 import com.das.service.AccesoService;
-
+//single responsibility principle
+//cada entidad tiene una clase para definir los metodos de acceso de la API 
 @RestController
 @RequestMapping("/acceso")
 public class AccesoController {
@@ -33,7 +34,7 @@ public class AccesoController {
 		Acceso acc= service.read(idUsuario, idProyecto);
 		if(acc==null) {
 			service.create(new Acceso(u, p));
-		}		
+		}
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	@GetMapping("/proyecto")

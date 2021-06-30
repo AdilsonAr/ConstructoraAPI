@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.das.constants.Roles;
+import com.das.model.Canal;
 import com.das.model.Role;
 import com.das.model.Usuario;
 import com.das.repository.RoleRepository;
@@ -20,12 +21,14 @@ import com.das.repository.UsuarioRepository;
 @Service
 public class UsuarioService implements UserDetailsService{
 	@Autowired
-	UsuarioRepository repo;
+	private UsuarioRepository repo;
 	@Autowired
-	RoleRepository roleRepo;
-	List<Roles> roles=Arrays.asList(Roles.values());
-	
+	private RoleRepository roleRepo;
+	private List<Roles> roles=Arrays.asList(Roles.values());
+	@Autowired
+	private CanalService cservice;
 	@PostConstruct
+	
 	public void roles() {
 		roles.forEach(x->{
 			if(roleRepo.findByRole(x.getRole())==null) {
@@ -39,7 +42,12 @@ public class UsuarioService implements UserDetailsService{
 	}
 	
 	public void create(Usuario u) {
-		repo.save(u);
+		Usuario creado= repo.save(u);
+		if(creado.getRole().getRole().equals(Roles.ADMIN.getRole()) 
+				|| creado.getRole().getRole().equals(Roles.GESTOR_PROYECTOS.getRole())) {
+			Canal canalProyectos = cservice.readNombre("Proyectos");
+			canalProyectos.attach(creado);
+		}
 	}
 	
 	public long readId(String username) {

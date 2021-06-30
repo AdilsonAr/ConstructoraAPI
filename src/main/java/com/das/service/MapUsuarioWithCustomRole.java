@@ -10,7 +10,9 @@ import com.das.dto.RequestUsuarioDto;
 import com.das.model.Role;
 import com.das.model.Usuario;
 import com.das.repository.RoleRepository;
-
+//dependency inversion
+//la clase controller de usuario(alto nivel) se comunica con los 
+//mapper de usuario(bajo nivel) por una abstraccion
 public class MapUsuarioWithCustomRole implements MapUsuarioStrategy{
 	@Autowired
 	PasswordEncoder enc;

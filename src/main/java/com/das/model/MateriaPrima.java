@@ -55,14 +55,12 @@ public class MateriaPrima {
 	public void setAsignacionMateriaPrimas(List<AsignacionMateriaPrima> asignacionMateriaPrimas) {
 		this.asignacionMateriaPrimas = asignacionMateriaPrimas;
 	}
-	public MateriaPrima(String nombre, String descripcion, double costoPromedio, int cantidadExistencias,
-			List<AsignacionMateriaPrima> asignacionMateriaPrimas) {
+	public MateriaPrima(String nombre, String descripcion, double costoPromedio, int cantidadExistencias) {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.costoPromedio = costoPromedio;
 		this.cantidadExistencias = cantidadExistencias;
-		this.asignacionMateriaPrimas = asignacionMateriaPrimas;
 	}
 	public MateriaPrima() {
 		super();

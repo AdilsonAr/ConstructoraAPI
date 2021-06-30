@@ -7,5 +7,4 @@ import com.das.model.Empleado;
 
 @Repository
 public interface EmpleadoRepository extends JpaRepository<Empleado, Long>{
-
 }

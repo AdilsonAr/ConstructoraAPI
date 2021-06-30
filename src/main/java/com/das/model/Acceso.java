@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+//single responsibility principle
+//cada entidad tiene una clase para definir el modelo de los datos
 @Entity
 public class Acceso {
 	@Id

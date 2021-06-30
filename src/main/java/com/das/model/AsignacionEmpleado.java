@@ -52,8 +52,11 @@ public class AsignacionEmpleado {
 	public void setEmpleado(Empleado empleado) {
 		this.empleado = empleado;
 	}
-	public AsignacionEmpleado(LocalDateTime fecha, String estado, Proyecto proyecto, Empleado empleado) {
+	
+	public AsignacionEmpleado(long idAsignacionEmpleado, LocalDateTime fecha, String estado, Proyecto proyecto,
+			Empleado empleado) {
 		super();
+		this.idAsignacionEmpleado = idAsignacionEmpleado;
 		this.fecha = fecha;
 		this.estado = estado;
 		this.proyecto = proyecto;

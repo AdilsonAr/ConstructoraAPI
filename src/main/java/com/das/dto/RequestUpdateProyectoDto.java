@@ -1,7 +1,8 @@
 package com.das.dto;
 
 import com.das.model.Proyecto;
-
+//Liskov sustitution, RequestUpdateProyectoDto puede ser integramente 
+//tratado como un RequestProyectoDto, todos los atributos y metodos son validos y necesarios
 public class RequestUpdateProyectoDto extends RequestProyectoDto{
 	private long idProyecto;
 	private double porcentajeAvance;

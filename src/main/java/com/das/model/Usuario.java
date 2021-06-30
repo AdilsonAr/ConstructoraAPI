@@ -12,13 +12,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.das.configuration.SpringContext;
+import com.das.service.NotificacionNoVistaService;
+import com.das.service.Observer;
+
 @Entity
-public class Usuario implements UserDetails{
+public class Usuario implements UserDetails, Observer{
+	
 	@Transient
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -33,7 +37,8 @@ public class Usuario implements UserDetails{
 	private Role role;
 	@OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL)
 	private List<Acceso> accesos;
-	
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	private List<NotificacionNoVista> notificacionesNoVistas;
 	public Usuario() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -150,6 +155,13 @@ public class Usuario implements UserDetails{
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return true;
+	}
+
+	@Override
+	public void update(Notificacion n) {
+		NotificacionNoVistaService nnService=SpringContext.getBean(NotificacionNoVistaService.class);
+		NotificacionNoVista nt=new NotificacionNoVista(n, this);
+		nnService.create(nt);
 	}
 	
 }

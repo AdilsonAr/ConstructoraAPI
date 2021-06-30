@@ -3,7 +3,6 @@ package com.das.dto;
 import java.time.LocalDateTime;
 
 import com.das.model.Inconveniente;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class ResponseInconvenienteDto {
 	private long idInconveniente;

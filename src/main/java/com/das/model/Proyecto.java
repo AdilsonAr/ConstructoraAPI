@@ -2,8 +2,6 @@ package com.das.model;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +14,7 @@ public class Proyecto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idProyecto;
-	@OneToMany(mappedBy = "proyecto",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "proyecto")
 	private List<Acceso> accesos;
 	private String nombre;
 	private double latitud;
@@ -41,6 +39,7 @@ public class Proyecto {
 	private List<AsignacionEmpleado> asignacionEmpleado;
 	@OneToMany(mappedBy = "proyecto")
 	private List<AsignacionMateriaPrima> asignacionMateriaPrimas;
+	
 	public long getIdProyecto() {
 		return idProyecto;
 	}

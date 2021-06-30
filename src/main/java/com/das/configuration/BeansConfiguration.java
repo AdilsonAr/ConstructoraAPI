@@ -16,5 +16,5 @@ public class BeansConfiguration {
 	@Bean(name = "withReaderRole")
 	public MapUsuarioWithReaderRole getMapperReaderRole() {
 		return new MapUsuarioWithReaderRole();
-	}
+	}	
 }

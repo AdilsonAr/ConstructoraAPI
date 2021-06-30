@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -18,8 +17,7 @@ public class Maquinaria {
 	private String descripcion;
 	private double costoPromedioMensual;
 	private int numeroEjemplares;
-	@OneToMany
-	@JoinColumn(name="idAsignacionMaquinaria")
+	@OneToMany(mappedBy = "maquinaria")
 	private List<AsignacionMaquinaria> asignacionMaquinaria;
 	public long getIdMaquinaria() {
 		return idMaquinaria;
@@ -57,14 +55,13 @@ public class Maquinaria {
 	public void setAsignacionMaquinaria(List<AsignacionMaquinaria> asignacionMaquinaria) {
 		this.asignacionMaquinaria = asignacionMaquinaria;
 	}
-	public Maquinaria(String nombre, String descripcion, double costoPromedioMensual, int numeroEjemplares,
-			List<AsignacionMaquinaria> asignacionMaquinaria) {
+	public Maquinaria(String nombre, String descripcion, double costoPromedioMensual
+			, int numeroEjemplares) {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.costoPromedioMensual = costoPromedioMensual;
 		this.numeroEjemplares = numeroEjemplares;
-		this.asignacionMaquinaria = asignacionMaquinaria;
 	}
 	public Maquinaria() {
 		super();

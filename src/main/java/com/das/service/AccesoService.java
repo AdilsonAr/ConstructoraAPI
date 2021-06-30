@@ -10,6 +10,8 @@ import com.das.model.Proyecto;
 import com.das.model.Usuario;
 import com.das.repository.AccesoRepository;
 
+//single responsibility principle
+//cada entidad tiene una clase de estereotipo service para encapsular la logica
 @Service
 public class AccesoService {
 	@Autowired

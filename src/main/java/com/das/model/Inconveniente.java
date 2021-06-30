@@ -42,8 +42,10 @@ public class Inconveniente {
 	public void setProyecto(Proyecto proyecto) {
 		this.proyecto = proyecto;
 	}
-	public Inconveniente(String motivo, LocalDateTime fecha, Proyecto proyecto) {
+	
+	public Inconveniente(long idInconveniente, String motivo, LocalDateTime fecha, Proyecto proyecto) {
 		super();
+		this.idInconveniente = idInconveniente;
 		this.motivo = motivo;
 		this.fecha = fecha;
 		this.proyecto = proyecto;
